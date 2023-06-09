@@ -25,7 +25,7 @@ public class CommandLineUtil {
 
         options.addRequiredOption("u", PropertiesUtil.URL_KEY, true, "The url to initiate crawling with. Required.");
 
-        String maxDepthDesc = String.format("Crawling depth limit. Default is %d, with no limit.", webCrawlProperties.getMaxDepth());
+        String maxDepthDesc = String.format("Crawling depth limit. 1 means only the supplied url will be crawled, not the embedded urls. Default is %d, with no limit.", webCrawlProperties.getMaxDepth());
         options.addOption("d", PropertiesUtil.MAX_DEPTH_KEY, true, maxDepthDesc);
 
         String maxRetriesDesc = String.format("Number of retries when crawling a url failed. Default is %d.", webCrawlProperties.getMaxRetries());
@@ -65,7 +65,7 @@ public class CommandLineUtil {
      */
     public static void displayHelp(Options options) {
         String header = "This crawls any given url and then saves the data to a csv file.";
-        String footer = "e.g. java -jar web-crawler.jar -u=http://google.com";
+        String footer = "e.g. java -jar web-crawler.jar -u http://google.com -d 1";
 
         HelpFormatter formatter = new HelpFormatter();
         formatter.printHelp("java -jar web-crawler.jar", header, options, footer, true);
