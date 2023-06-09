@@ -23,6 +23,8 @@ public class PropertiesUtil {
     public static final String PATH_TO_FILE = "path.to.file";
 
     public static final String HELP_KEY = "help";
+    public static final String VERBOSE_KEY = "verbose";
+    public static final String LOGGER_KEY = "logger";
     public static final String URL_KEY = "url";
 
     private static final Properties properties = loadProperties();

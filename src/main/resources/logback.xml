@@ -1,6 +1,6 @@
 <configuration>
-    <!-- Default environment when ENVIRONMENT is not defined in system properties. -->
-    <property name="ENVIRONMENT" value="development" />
+    <!-- Default environment when ENV is not defined in system properties. -->
+    <property name="ENV" value="dev" />
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -11,7 +11,7 @@
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>logs/app.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>logs/app-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>logs/app-%d{yyyy-MM-dd HH:mm:ss}.log</fileNamePattern>
             <maxHistory>2</maxHistory>
         </rollingPolicy>
         <encoder>
@@ -20,19 +20,28 @@
     </appender>
 
     <!-- Development environment -->
-    <if condition='property("ENVIRONMENT").equals("development")'>
+    <if condition='property("ENV").equals("dev")'>
         <then>
             <root level="DEBUG">
-                <appender-ref ref="CONSOLE" />
+                <if condition='property("verbose").equals("true")'>
+                    <then>
+                        <appender-ref ref="CONSOLE" />
+                    </then>
+                </if>
                 <appender-ref ref="FILE" />
             </root>
         </then>
     </if>
 
     <!-- Production environment -->
-    <if condition='property("ENVIRONMENT").equals("production")'>
+    <if condition='property("ENV").equals("prod")'>
         <then>
             <root level="INFO">
+                <if condition='property("verbose").equals("true")'>
+                        <then>
+                            <appender-ref ref="CONSOLE" />
+                        </then>
+                </if>
                 <appender-ref ref="FILE" />
             </root>
         </then>

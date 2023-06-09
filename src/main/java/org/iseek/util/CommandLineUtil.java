@@ -22,6 +22,8 @@ public class CommandLineUtil {
      */
     public static void createCrawlerOptions(Options options, WebCrawlProperties webCrawlProperties) {
         options.addOption("h", PropertiesUtil.HELP_KEY, false, "Display help information.");
+        options.addOption("v", PropertiesUtil.VERBOSE_KEY, false, "Shows logs to the console.");
+        options.addOption("l", PropertiesUtil.LOGGER_KEY, false, "Show logs from logger.");
 
         options.addRequiredOption("u", PropertiesUtil.URL_KEY, true, "The url to initiate crawling with. Required.");
 
