@@ -65,10 +65,10 @@ public class CommandLineUtil {
      */
     public static void displayHelp(Options options) {
         String header = "This crawls any given url and then saves the data to a csv file.";
-        String footer = "e.g. java -jar WebCrawler.jar -u=http://google.com";
+        String footer = "e.g. java -jar web-crawler.jar -u=http://google.com";
 
         HelpFormatter formatter = new HelpFormatter();
-        formatter.printHelp("java -jar WebCrawler.jar", header, options, footer, true);
+        formatter.printHelp("java -jar web-crawler.jar", header, options, footer, true);
     }
 
     /**
