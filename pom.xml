@@ -64,6 +64,7 @@
         </dependency>
     </dependencies>
     <build>
+        <finalName>web-crawler</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -81,7 +82,7 @@
                                     <mainClass>org.iseek.Main</mainClass>
                                 </transformer>
                             </transformers>
-                            <finalName>webcrawler</finalName>
+                            <finalName>web-crawler</finalName>
                             <filters>
                                 <filter>
                                     <artifact>*:*</artifact>
@@ -92,6 +93,25 @@
                                     </excludes>
                                 </filter>
                             </filters>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <copy file="${project.build.directory}/${project.build.finalName}.jar" todir="${project.basedir}/dist" />
+                            </target>
                         </configuration>
                     </execution>
                 </executions>
