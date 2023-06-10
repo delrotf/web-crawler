@@ -56,6 +56,7 @@ public class PropertiesUtil {
      * @param propertyName The name of the property.
      * @param type The type of the returned value.
      * @return Returns the value of the property.
+     * @param <T> The type parameter.
      */
     public static <T> T getAs(String propertyName, Class<T> type) {
         return getAs(propertyName, null, type);
@@ -68,6 +69,7 @@ public class PropertiesUtil {
      * @param defaultValue The default value when property is not found.
      * @param type The type of the returned value.
      * @return Returns the value of the property.
+     * @param <T> The type parameter.
      */
     public static <T> T getAs(String propertyName, T defaultValue, Class<T> type) {
         String value = properties.getProperty(propertyName);

@@ -1,0 +1,10 @@
+org.iseek
+org.iseek.crawler
+org.iseek.crawler.impl
+org.iseek.crawler.properties
+org.iseek.repository
+org.iseek.repository.impl
+org.iseek.repository.properties
+org.iseek.service
+org.iseek.service.impl
+org.iseek.util
