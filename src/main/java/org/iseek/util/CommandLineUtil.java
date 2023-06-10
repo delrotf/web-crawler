@@ -66,7 +66,7 @@ public class CommandLineUtil {
      * @param options The options for the command line.
      */
     public static void displayHelp(Options options) {
-        String header = "This crawls any given url and then saves the data to a csv file.";
+        String header = "This crawls any given url and then saves the data to a csv file in output directory. Logs can be found under logs directory.";
         String footer = "e.g. java -jar web-crawler.jar -u http://google.com -d 1";
 
         HelpFormatter formatter = new HelpFormatter();
